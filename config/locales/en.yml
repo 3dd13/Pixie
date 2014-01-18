@@ -24,8 +24,8 @@ en:
 
   user_action:
     buy: "Buy now!"
-	add_to_cart: "Add to Cart!"
-	add_to_wishlist: "Add to Wishlist!"
+    add_to_cart: "Add to Cart!"
+    add_to_wishlist: "Add to Wishlist!"
 
   labels:
     size: "Sizes: "
@@ -34,5 +34,3 @@ en:
     quantity: "Quantity: "
     description: "Description: "
     condition: "Condition: "
-
-
