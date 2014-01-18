@@ -1,4 +1,5 @@
 class GarmentsController < ApplicationController
+  layout 'pixie'
   before_action :authenticate_admin!
   before_action :set_garment, only: [:show, :edit, :update, :destroy]
 

@@ -31,6 +31,9 @@ gem 'devise'
 
 gem 'awesome_print'
 
+gem 'font-awesome-less'
+gem 'font-awesome-sass'
+
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :doc do

@@ -1,6 +1,6 @@
 Pixie::Application.routes.draw do
   
-  get "about/" => "about#index"
+  get "about" => "about#index"
   devise_for :users
   devise_for :admins
   resources :garments
