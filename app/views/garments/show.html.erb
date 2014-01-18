@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @garment.style %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @garment.period %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @garment.genre %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @garment.material %>
+</p>
+
+<p>
+  <strong>Available size:</strong>
+  <%= @garment.available_size %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @garment.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @garment.price %>
+</p>
+
+<%= link_to 'Edit', edit_garment_path(@garment) %> |
+<%= link_to 'Back', garments_path %>

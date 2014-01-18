@@ -1,0 +1,41 @@
+<h1>Listing garments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th>Period</th>
+      <th>Genre</th>
+      <th>Material</th>
+      <th>Available size</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead> 
+
+  <tbody>
+    <% @garments.each do |garment| %>
+      <tr>
+        <td><%= garment.style %></td>
+        <td><%= garment.period %></td>
+        <td><%= garment.genre %></td>
+        <td><%= garment.material %></td>
+        <td><%= garment.available_size %></td>
+        <td><%= garment.quantity %></td>
+        <td><%= garment.price %></td>
+        <td><%= link_to 'Show', garment %></td>
+        <td><%= link_to 'Edit', edit_garment_path(garment) %></td> <!-- edit_garment_path is just a string path, the (garment) part is the dynamic, which is the nameholder in this .each loop,  garment.to_param = :id (garment) -->
+        <td><%= link_to 'Destroy', garment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'User Sign out', destroy_user_session_path, method: :delete %></td>
+        <td><%= link_to 'Admin Sign out', destroy_admin_session_path, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garment', new_garment_path %>
