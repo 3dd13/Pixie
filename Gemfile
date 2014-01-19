@@ -46,6 +46,8 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

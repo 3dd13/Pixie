@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112103327) do
+ActiveRecord::Schema.define(version: 20140119093040) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 20140112103327) do
 
   add_index "garments", ["admin_id"], name: "index_garments_on_admin_id"
 
+  create_table "messages", force: true do |t|
+    t.string   "user_email"
+    t.string   "title"
+    t.string   "topic"
+    t.text     "content"
+    t.integer  "message_id"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["admin_id"], name: "index_messages_on_admin_id"
+  add_index "messages", ["message_id"], name: "index_messages_on_message_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -60,6 +74,8 @@ ActiveRecord::Schema.define(version: 20140112103327) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

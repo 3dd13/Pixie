@@ -186,6 +186,7 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
+
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
   # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
@@ -228,6 +229,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+  require "omniauth-facebook"
+    config.omniauth :facebook, "287075801440258", "ca0f759d91f9c98e32a891a64e99f5c1"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

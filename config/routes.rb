@@ -1,7 +1,16 @@
 Pixie::Application.routes.draw do
   
+  resources :messages
+
+  get "contact" => "contact#index", as: :contact
+  get "collection/index"
   get "about" => "about#index"
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  # devise_scope :user do
+  #  get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
+  
   devise_for :admins
   resources :garments
 

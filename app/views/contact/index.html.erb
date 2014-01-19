@@ -1,0 +1,52 @@
+
+<div id="contact" style="margin-top: 40px;">
+  <%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :user_email, :style => "border-radius: 5px;" %>
+  </div><br>
+  <div class="field">
+    <%= f.label :about %><br>
+    <%= f.text_field :topic, :style => "border-radius: 5px;" %>
+  </div><br>
+  <div class="field">
+    <%= f.label :tell %><br>
+    <%= f.text_area :content, :style => "border-radius: 5px; width: 30%; height: 160px;" %>
+  </div>
+  <div class="actions">
+    <%= f.submit I18n.t('helpers.submit.ask'), :class => 'btn btn-lg btn-warning', :style => "height: 45px;" %>
+    <!-- <button type="button" class="btn btn-warning"><%= f.submit %></button> -->
+  </div>
+<% end %>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% if I18n.locale == :en %>
+  <a href="https://twitter.com/pixiepixiehq"><button type="button" class="btn btn-lg btn-info"><%= I18n.t('helpers.label.message.twitter') %> <i style="font-size:22px;" class="fa fa-twitter"></i></button></a>
+<% else %>
+  <a href="http://weibo.com/u/3988974127"><button type="button" class="btn btn-lg btn-danger"><%= I18n.t('helpers.label.message.weibo') %> <i style="font-size:22px;" class="fa fa-weibo" id="weibo"></i></button></a>
+<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>

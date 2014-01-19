@@ -38,3 +38,18 @@ en:
     period2: "s"
 
   introduction: "Pixie specialize in fine vintage clothing for babies and children. Inspired by the care, quality and the immaculate detail that once went into construction of clothing. Each piece is hand picked for its character, charm and craftsmanship. The collection offers the most unique and special original pieces ranges from new born to 10 years old. A treasure for your child's special occasion or a unique gift to your love ones."
+
+  helpers:
+    submit:
+      ask: "Ask"
+    label:
+      message:
+        email: "Your e-mail here to keep in touch!"
+        about: "About?"
+        tell: "Tell us what you think!"
+        twitter: "Follow us on"
+    placeholder:
+      subscription: "Pixie fan here!"
+
+
+      

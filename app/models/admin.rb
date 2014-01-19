@@ -7,5 +7,6 @@ class Admin < ActiveRecord::Base
          #admin@pixie.com
          #12345678
   has_many :garment
+  has_many :message
   
 end

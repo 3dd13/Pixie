@@ -19,7 +19,7 @@
   #footer {
       color: white;
       font-family: helvetica;
-      font-size: 20px;
+      font-size: 18px;
       margin: auto;
       padding: 20px;
     }
@@ -28,6 +28,27 @@
     border-radius: 5px;
     margin:5px;
   }
+  #social_media {
+      font-size: 40px;
+    }
+    #fb:hover {
+      color:#ffb800;
+    }
+    #twitter:hover {
+      color:#ffb800;
+    }
+    #pin:hover {
+      color:#ffb800;
+    }
+    #gplus:hover {
+      color:#ffb800;
+    }
+    #tumblr:hover {
+      color:#ffb800;
+    }
+    #weibo:hover {
+      color:#ffb800;
+    }
   </style>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -53,7 +74,10 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li class="dropdown">
+                <li><%= link_to "Collection", collection_index_path %></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Contact", contact_path %></li>
+                  <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Baby Boy</a></li>
@@ -62,26 +86,19 @@
                     <li><a href="#">Kiddie Boy</a></li>
                     <li><a href="#">Mini Girl</a></li>
                   </ul>
-                <li><%= link_to "About", about_path %></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
                 </li>
+                <% if current_user %>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to "Sign In", new_user_session_path %>
+                <li><%= link_to "or Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                <% end %>
                 <li><ul class="nav navbar-nav pull-right">
-                    <li><%= link_to "Eng Version", root_path(locale: "en") %></li>
+                    <li><%= link_to "English", root_path(locale: "en") %></li>
                     <li><%= link_to "中文版", root_path(locale: "zh-CN") %></li>
                     </ul>
                 </li>
-                <li><a href="/"><i class="fa fa-shopping-cart"></i></a></li>
+                <li><a style="font-size: 18px;" href="/"><i class="fa fa-shopping-cart"></i></a></li>
               </ul>
             </div>
   
@@ -99,9 +116,12 @@
 
       <!-- FOOTER -->
       <footer>
-        <input style="border: 0;padding: 8px;font-size: 16px;" type="email" placeholder="Pixie fan here!">
-        <input style="border: 0;padding: 8px;font-size: 16px;background: red;color: white;" type="submit">
+        <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;" type="email" placeholder="Pixie fan here!">
+        <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;background: red;color: white;" type="submit">
         <br/>
+        <br/>
+        <br/>
+        <p id="social_media"><i class="fa fa-facebook-square" id="fb"></i>  <i class="fa fa-twitter" id="twitter"></i>  <i class="fa fa-pinterest-square" id="pin"></i>  <i class="fa fa-google-plus-square" id="gplus"></i>  <i class="fa fa-tumblr-square" id="tumblr"></i>  <i class="fa fa-weibo" id="weibo"></i></p>
         <br/>
         <p id="footer">&copy; 2014 Pixie Unlimited. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>

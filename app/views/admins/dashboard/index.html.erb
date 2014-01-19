@@ -1,0 +1,68 @@
+<h1>Pixie! Admin Dashboard</h1>
+
+<h3>Users</h3>
+<div>No. of users: <%= @number_of_users %></div>
+<div>Users details:</div>
+<table border="1">
+	<tr>
+	  <td>User ID</td>
+	  <td>User email</td>
+	</tr>
+	<% User.each do %>
+	<tr>
+	  <td><%= User.id %></td>
+	  <td><%= User.email %></td>
+	</tr>
+	<% end %>
+</table>
+
+<h3>Messages</h3>
+<div>No. of messages: <%= @number_of_messages %></div>
+<div>Messages:</div>
+<table border="1">
+	<tr>
+		<td>Title</td>
+		<td>Topic</td>
+		<td>Content</td>
+		<td>User Email</td>
+	</tr>
+	<% Message.each do %>
+	<tr>
+		<td><%= Message.title %></td>
+		<td><%= Message.topic %></td>
+		<td><%= Message.content %></td>
+		<td><%= Message.user_email %></td>
+	</tr>
+	<% end %>
+</table>
+
+<h3>Garments</h3>
+<div>No. of garments: <%= @number_of_garments %></div>
+<table border="1">
+	<tr>
+	<td>ID</td>
+	<td>Style</td>
+	<td>Genre</td>
+	<td>Period</td>
+	<td>Material</td>
+	<td>Available size</td>
+	<td>Quantity</td>
+	<td>Price</td>
+	<td>Description</td>
+	<td>Admin ID</td>
+	</tr>
+	<% Garment.each do %>
+	<tr>
+	<td><%= Garment.id %></td>
+	<td><%= Garment.style %></td>
+	<td><%= Garment.genre %></td>
+	<td><%= Garment.period %></td>
+	<td><%= Garment.material %></td>
+	<td><%= Garment.available_size %></td>
+	<td><%= Garment.quantity %></td>
+	<td><%= Garment.price %></td>
+	<td><%= Garment.description %></td>
+	<td><%= Garment.admin_id %></td>
+	</tr>
+	<% end %>
+</table>

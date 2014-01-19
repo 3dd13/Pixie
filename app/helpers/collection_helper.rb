@@ -1,0 +1,3 @@
+module CollectionHelper
+
+end
