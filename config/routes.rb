@@ -5,6 +5,8 @@ Pixie::Application.routes.draw do
   get "contact" => "contact#index", as: :contact
   get "collection/index"
   get "about" => "about#index"
+  post "subscriptions" => "subscriptions#create"
+  # patch "subscription" redirect_to "subscription#create"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   # devise_scope :user do

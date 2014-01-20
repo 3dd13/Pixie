@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119093040) do
+ActiveRecord::Schema.define(version: 20140120053041) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 20140119093040) do
 
   add_index "messages", ["admin_id"], name: "index_messages_on_admin_id"
   add_index "messages", ["message_id"], name: "index_messages_on_message_id"
+
+  create_table "subscriptions", force: true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["email"], name: "index_subscriptions_on_email"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

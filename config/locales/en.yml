@@ -49,7 +49,17 @@ en:
         tell: "Tell us what you think!"
         twitter: "Follow us on"
     placeholder:
-      subscription: "Pixie fan here!"
+      sub: "Pixie fan here!"
+      submit: "Submit"
+    navbar:
+      about_us: "About"
+      home: "Home"
+      collection: "Collection"
+      contact: "Contact"
+      sign_in: "Sign In"
+      sign_in_with: "or Sign In with Facebook"
+      sign_out: "Sign Out"
 
 
-      
+
+

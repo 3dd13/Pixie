@@ -8,5 +8,6 @@ class Admin < ActiveRecord::Base
          #12345678
   has_many :garment
   has_many :message
+  has_many :subscrition
   
 end

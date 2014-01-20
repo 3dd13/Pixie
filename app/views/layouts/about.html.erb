@@ -28,6 +28,20 @@
     border-radius: 5px;
     margin:5px;
   }
+  #subscription_list {
+      border: 0;
+      border-radius: 3px;
+      padding: 8px;
+      font-size: 16px;"
+  }
+  #subscription_button {
+      border: 0;
+      border-radius: 3px;
+      padding: 8px;
+      font-size: 16px;
+      background: red;
+      color: white;
+  }
   #social_media {
       font-size: 40px;
     }
@@ -69,15 +83,16 @@
                 <span class="icon-bar"></span>
               </button>
               <!--class="navbar-brand"-->
-              <a href="/"><img src="http://farm4.staticflickr.com/3783/12008521164_c8e4523bd9_o.jpg" /></a>
+              <%= link_to image_tag('http://farm4.staticflickr.com/3783/12008521164_c8e4523bd9_o.jpg'), root_path %>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><%= link_to "Collection", collection_index_path %></li>
-                <li><%= link_to "About", about_path %></li>
-                <li><%= link_to "Contact", contact_path %></li>
-                  <li class="dropdown">
+                <!-- <li class="active"> -->
+                <li><%= link_to I18n.t('helpers.navbar.home'), root_path %></li>
+                <li><%= link_to I18n.t('helpers.navbar.collection'), collection_index_path %></li>
+                <li><%= link_to I18n.t('helpers.navbar.about_us'), about_path %></li>
+                <li><%= link_to I18n.t('helpers.navbar.contact'), contact_path %></li>
+                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Baby Boy</a></li>
@@ -86,12 +101,11 @@
                     <li><a href="#">Kiddie Boy</a></li>
                     <li><a href="#">Mini Girl</a></li>
                   </ul>
-                </li>
                 <% if current_user %>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to I18n.t('helpers.navbar.sign_out'), destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                <li><%= link_to "Sign In", new_user_session_path %>
-                <li><%= link_to "or Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                <li><%= link_to I18n.t('helpers.navbar.sign_in'), new_user_session_path %>
+                <li><%= link_to I18n.t('helpers.navbar.sign_in_with'), user_omniauth_authorize_path(:facebook) %></li>
                 <% end %>
                 <li><ul class="nav navbar-nav pull-right">
                     <li><%= link_to "English", root_path(locale: "en") %></li>
@@ -116,8 +130,12 @@
 
       <!-- FOOTER -->
       <footer>
-        <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;" type="email" placeholder="Pixie fan here!">
-        <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;background: red;color: white;" type="submit">
+        <%= form_for :subscription, url: subscriptions_path do |f| %>
+        <%= f.text_field :email, placeholder: I18n.t('helpers.placeholder.sub'), id: "subscription_list" %>
+        <%= f.submit I18n.t('helpers.placeholder.submit'), id: "subscription_button" %>
+        <% end %>
+        <!-- <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;" type="email" placeholder="Pixie fan here!">
+        <input style="border: 0;border-radius: 3px;padding: 8px;font-size: 16px;background: red;color: white;" type="submit"> -->
         <br/>
         <br/>
         <br/>

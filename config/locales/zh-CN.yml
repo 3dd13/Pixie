@@ -28,5 +28,14 @@ zh-CN:
         tell: "告诉我们你的想法!"
         twitter: "关注我们"
         weibo: "关注我们"
-
-  subscription: "Pixie粉丝留名!"
+    placeholder:
+      sub: "Pixie粉丝留名!"
+      submit: "提交"
+    navbar:
+      about_us: "关于我们"
+      home: "首页"
+      collection: "系列"
+      contact: "联系"
+      sign_in: "登录"
+      sign_in_with: "或以Facebook登录"
+      sign_out: "登出"

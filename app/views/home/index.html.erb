@@ -49,21 +49,19 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
-      <br />
-      <br />
-      <br />
-      <!-- Three columns of text below the carousel -->
-     <div class="row">
-        <% @new_garments.each do |garment| %>
-        <div class="col-lg-4">
-          <a href="#" class="garment_photo">
-            <span class="garment_detail">
-              <p><%= garment.style %></p>
-              <p><%= I18n.t('labels.from') %><%= garment.period %><%= I18n.t('labels.period2') %></p>
-              <p><i class="fa fa-btc"></i><%=garment.price %></p>
-            </span>
-            <img src="http://placehold.it/150x150"></a> <br /><br /><br />
-        </div><!-- /.col-lg-4 -->
-       <% end %>
-      </div><!-- /.row -->
+<br>
+    <table style="border-collapse:collapse;">
+      <tr>
+        <td id="lady"><%= link_to image_tag('http://farm6.staticflickr.com/5491/12044556233_263e569f7a_o.jpg'), collection_index_path %></td>
+        <td id="summer"><%= link_to image_tag('http://farm4.staticflickr.com/3783/12044256815_5b79def0d3_o.jpg'), collection_index_path %></td>
+      </tr>
+      <tr>
+        <td id="autumn"><%= link_to image_tag('http://farm8.staticflickr.com/7434/12044654794_f0a70c1360_o.jpg'), collection_index_path %></td>
+        <td id="gentleman"><%= link_to image_tag('http://farm6.staticflickr.com/5520/12044251805_f98d74b1ae_o.jpg'), collection_index_path %></td>
+      </tr>
+    </table>
+<br>
+<br>
+<br>
+<br>
+<br>
