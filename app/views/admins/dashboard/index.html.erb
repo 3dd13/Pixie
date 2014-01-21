@@ -52,12 +52,12 @@
 		<th> </th>
 		<th> </th>
 	</tr>
-	<% @all_subscriptions.each do |s| %>
+	<% @all_subscriptions.each do |subscription| %>
 	<tr>
-		<td><%= s.id %></td>
-		<td><%= s.email %></td>
+		<td><%= subscription.id %></td>
+		<td><%= subscription.email %></td>
 		<td><%= link_to 'Show', subscriptions_path %></td>
-		<td><%= link_to 'Destroy', subscriptions_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
+		<td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
 	</tr>
 	<% end %>
 </table>

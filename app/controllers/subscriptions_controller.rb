@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  # before_action :set_subscription, only: [:create, :destroy]
+  before_action :set_subscription, only: [:create, :destroy]
   # GET /messages
   # GET /messages.json
   def index
@@ -51,9 +51,9 @@ class SubscriptionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def set_subscription
-    #   @subscription = Subscription.find(params[:id])
-    # end
+    def set_subscription
+      @subscription = Subscription.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
