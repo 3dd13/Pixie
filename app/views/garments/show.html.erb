@@ -1,39 +1,68 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Style:</strong>
-  <%= @garment.style %>
-</p>
+<div id="right">
+  <h3>
+    <strong id="style_tag"><%= I18n.t('labels.style') %></strong>
+    <%= @garment.style %>
+  </h3>
 
-<p>
-  <strong>Period:</strong>
-  <%= @garment.period %>
-</p>
+  <h4>
+    <strong id="style_tag"><%= I18n.t('labels.period') %></strong>
+    <%= @garment.period %>
+  </h4>
 
-<p>
+<!-- <p>
   <strong>Genre:</strong>
   <%= @garment.genre %>
-</p>
+</p> -->
 
-<p>
-  <strong>Material:</strong>
-  <%= @garment.material %>
-</p>
+  <h4>
+    <strong id="style_tag"><%= I18n.t('labels.material') %></strong>
+    <%= @garment.material %>
+  </h4>
 
-<p>
-  <strong>Available size:</strong>
-  <%= @garment.available_size %>
-</p>
+  <h4>
+    <strong id="style_tag"><%= I18n.t('labels.size') %></strong>
+    <%= @garment.available_size %>
+  </h4>
+  <h4>
+    <strong id="style_tag"><%= I18n.t('labels.price') %></strong>
+    <i class="fa fa-btc"></i><%= @garment.price %>
+  </h4>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @garment.quantity %>
-</p>
+<% if admin_signed_in? %>
+  <%= link_to 'Edit', edit_garment_path(@garment) %> |
+  <%= link_to 'Back', garments_path %>
+<% else %>
+  
+  <button type="button" class="btn btn-warning"><%= link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, shopping_cart_items_path, method: :post %></button>
+  <!-- <a href="/" class="btn btn-warning"><i class="fa fa-shopping-cart"></i></a> -->
+  <!--<%= button_to  %>-->
+  <%= link_to I18n.t('labels.back'), collection_index_path %>
+<% end %>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @garment.price %>
-</p>
+<div style="margin:auto;" id="left">
+  <%= image_tag @garment.image1.url(:large) %><br><br>
+    <%if @garment.image2 != nil %>
+    <%= image_tag @garment.image2.url(:large) %><br><br>
+    <% end %>
+    <%if @garment.image3 != nil %>
+    <%= image_tag @garment.image3.url(:large) %><br><br>
+    <% end %>
+    <% if @garment.image4 != nil %>
+    <%= image_tag @garment.image4.url(:large) %><br><br>
+    <% end %>
 
-<%= link_to 'Edit', edit_garment_path(@garment) %> |
-<%= link_to 'Back', garments_path %>
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+

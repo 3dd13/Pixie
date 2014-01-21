@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  layout 'admin'
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -58,8 +59,9 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url }
-      format.json { head :no_content }
+      format.html { redirect_to admins_path }
+      #format.html { redirect_to messages_url }
+      format.json { render json: {success: 'ok'} }
     end
   end
 

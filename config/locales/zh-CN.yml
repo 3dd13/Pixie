@@ -7,6 +7,7 @@ zh-CN:
     add_to_wishlist: "加入收藏夹!"
 
   labels:
+    style: "风格: "
     size: "尺寸: "
     material: "材质: "
     period: "时期: "
@@ -15,6 +16,8 @@ zh-CN:
     condition: "状态: "
     from: "来自"
     period2: "年代"
+    price: "价格: "
+    back: "回去"
 
   introduction: "Pixie專注的是古著童裝飾品。起源于對從前衣物的魅力和精湛的工藝。每件pixie童裝都是我們精心挑選，獨一無二。它們來自不同時空、大陸，從三十年代至八十年代；由英國法國到美利堅國，每件背後有不同故事，伴隨過一代代人的成長。其手工，設計以至細節都會為你帶來驚喜。pixie兒童系列適於小寶寶到10歲的孩子。不管是為您的孩子打造獨特個性造型還是作為收藏，都將是最特殊的一份禮物。"
 
@@ -28,6 +31,10 @@ zh-CN:
         tell: "告诉我们你的想法!"
         twitter: "关注我们"
         weibo: "关注我们"
+        product: "货品"
+        shipping: "送货服务"
+        return: "退货服务"
+        others: "其他问题"
     placeholder:
       sub: "Pixie粉丝留名!"
       submit: "提交"
@@ -39,3 +46,9 @@ zh-CN:
       sign_in: "登录"
       sign_in_with: "或以Facebook登录"
       sign_out: "登出"
+    shopping_cart_items:
+      shopping_cart: "你的購物车："
+      shopping_cart_empty: "你的購物车还是空的！"
+      continue: "继续購物吧"
+
+

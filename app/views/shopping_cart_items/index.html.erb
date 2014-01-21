@@ -1,0 +1,43 @@
+<% if @shopping_cart_items.count === 0 %>
+<h1><%= I18n.t('helpers.shopping_cart_items.shopping_cart_empty') %></h1>
+<% else %>
+<h1><%= I18n.t('helpers.shopping_cart_items.shopping_cart') %></h1>
+
+<table id="shopping_cart">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Garment</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shopping_cart_items.each do |shopping_cart_item| %>
+      <tr>
+        <td><%= shopping_cart_item.user_id %></td>
+        <td><%= shopping_cart_item.garment_id %></td>
+        <td><%= shopping_cart_item.quantity %></td>
+        <td><%= link_to 'Show', shopping_cart_item %></td>
+        <td><%= link_to 'Edit', edit_shopping_cart_item_path(shopping_cart_item) %></td>
+        <td><%= link_to 'Remove', shopping_cart_item, method: :delete %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<br>
+
+<%= link_to I18n.t('helpers.shopping_cart_items.continue'), collection_index_path %>
+
+<br>
+<br>
+<br>
+<br>
+<br>

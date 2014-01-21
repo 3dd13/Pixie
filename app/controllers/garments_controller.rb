@@ -1,6 +1,6 @@
 class GarmentsController < ApplicationController
-  layout 'pixie'
-  before_action :authenticate_admin!
+  layout :layout_admin_or_user
+  before_action :authenticate_admin!, except: [:show]
   before_action :set_garment, only: [:show, :edit, :update, :destroy]
 
   # GET /garments
@@ -12,6 +12,7 @@ class GarmentsController < ApplicationController
   # GET /garments/1
   # GET /garments/1.json
   def show
+
   end
 
   # GET /garments/new
@@ -58,8 +59,19 @@ class GarmentsController < ApplicationController
   def destroy
     @garment.destroy
     respond_to do |format|
-      format.html { redirect_to garments_url }
+      format.html { redirect_to admins_path }
+      #format.html { redirect_to garments_url }
       format.json { head :no_content }
+    end
+  end
+
+    protected
+
+  def layout_admin_or_user
+    if admin_signed_in?
+      "admin"
+    else
+      "application"
     end
   end
 
@@ -72,6 +84,6 @@ class GarmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def garment_params
       # { garment: {style: 'xyz'} }
-      params.require(:garment).permit(:style, :period, :genre, :material, :available_size, :quantity, :price, :description)
+      params.require(:garment).permit(:style, :period, :genre, :material, :available_size, :quantity, :price, :description, :image1, :image2, :image3, :image4)
     end
 end

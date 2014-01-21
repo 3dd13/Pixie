@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120053041) do
+ActiveRecord::Schema.define(version: 20140121053509) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 20140120053041) do
     t.datetime "updated_at"
     t.text     "description"
     t.integer  "admin_id"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+    t.string   "image4_file_name"
+    t.string   "image4_content_type"
+    t.integer  "image4_file_size"
+    t.datetime "image4_updated_at"
   end
 
   add_index "garments", ["admin_id"], name: "index_garments_on_admin_id"
@@ -60,6 +76,17 @@ ActiveRecord::Schema.define(version: 20140120053041) do
 
   add_index "messages", ["admin_id"], name: "index_messages_on_admin_id"
   add_index "messages", ["message_id"], name: "index_messages_on_message_id"
+
+  create_table "shopping_cart_items", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "garment_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shopping_cart_items", ["garment_id"], name: "index_shopping_cart_items_on_garment_id"
+  add_index "shopping_cart_items", ["user_id"], name: "index_shopping_cart_items_on_user_id"
 
   create_table "subscriptions", force: true do |t|
     t.string   "email"

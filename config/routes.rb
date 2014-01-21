@@ -1,14 +1,21 @@
 Pixie::Application.routes.draw do
   
+  resources :shopping_cart_items
+
   resources :messages
 
   get "contact" => "contact#index", as: :contact
   get "collection/index"
   get "about" => "about#index"
   post "subscriptions" => "subscriptions#create"
+  delete "subscriptions" => "subscriptions#destroy"
   # patch "subscription" redirect_to "subscription#create"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
+  namespace :admins do
+    get "/" => "dashboard#index"
+  end
+
   # devise_scope :user do
   #  get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end

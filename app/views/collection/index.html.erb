@@ -1,18 +1,26 @@
-<!-- <div class="container marketing">
-      <br />
-      <br />
-      <br />
+ <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+<br>
+<br>
+    <div class="container marketing">
+
       <!-- Three columns of text below the carousel -->
-     <!-- <div class="row">
-        <% @new_garments.each do |garment| %>
-        <div class="col-lg-4">
-          <a href="#" class="garment_photo">
-            <span class="garment_detail">
-              <p><%= garment.style %></p>
-              <p><%= I18n.t('labels.from') %><%= garment.period %><%= I18n.t('labels.period2') %></p>
-              <p><i class="fa fa-btc"></i><%=garment.price %></p>
-            </span>
-            <img src="http://placehold.it/150x150"></a> <br /><br /><br />
+      <div class="row">
+        
+          <% @garments.each do |garment| %>
+          
+          <div id="garment_details">
+            <div class="col-lg-4">
+          <div id="garment_photo"><%= link_to image_tag(garment.image1.url(:square)), garment_path(garment) %></div>
+          <div class="float_right" id="garment_hover"><p><%= garment.style %></p>
+          <p><%= I18n.t('labels.from') %><%= garment.period %><%= I18n.t('labels.period2') %></p>
+          <p><i class="fa fa-btc"></i><%=garment.price %></p></div></div>
+          <% end %>
         </div><!-- /.col-lg-4 -->
-      <!--  <% end %>
+        
+        </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
+      <br>
+      <br>
+      <br>

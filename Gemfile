@@ -48,6 +48,8 @@ end
 
 gem 'omniauth-facebook'
 
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

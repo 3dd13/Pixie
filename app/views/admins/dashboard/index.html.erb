@@ -5,13 +5,15 @@
 <div>Users details:</div>
 <table border="1">
 	<tr>
-	  <td>User ID</td>
-	  <td>User email</td>
+	  <th>User ID</th>
+	  <th>User email</th>
+	  <th>Last signed in at</th>
 	</tr>
-	<% User.each do %>
+	<% @all_users.each do |user| %>
 	<tr>
-	  <td><%= User.id %></td>
-	  <td><%= User.email %></td>
+	  <td><%= user.id %></td>
+	  <td><%= user.email %></td>
+	  <td><%= user.last_sign_in_at %></td>
 	</tr>
 	<% end %>
 </table>
@@ -21,17 +23,41 @@
 <div>Messages:</div>
 <table border="1">
 	<tr>
-		<td>Title</td>
-		<td>Topic</td>
-		<td>Content</td>
-		<td>User Email</td>
+		<th>Topic</th>
+		<th>Content</th>
+		<th>User Email</th>
+		<th> </th>
+		<th> </th>
+		<th>AJAX</th>
 	</tr>
-	<% Message.each do %>
+	<% @all_messages.each do |message| %>
 	<tr>
-		<td><%= Message.title %></td>
-		<td><%= Message.topic %></td>
-		<td><%= Message.content %></td>
-		<td><%= Message.user_email %></td>
+		<td><%= message.topic %></td>
+		<td><%= message.content %></td>
+		<td><%= message.user_email %></td>
+		<td><%= link_to 'Show', message %></td>
+        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_tag 'Ajax Destroy', class: "btn btn-sm btn-danger btn-delete-message", href: messages_path(message) %></td>
+	</tr>
+	<% end %>
+</table>
+
+<h3>Subscriptions</h3>
+<div>No. of subscriptions: <%= @number_of_subscriptions %></div>
+<div>Subscriptions:</div>
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Email</th>
+		<th> </th>
+		<th> </th>
+	</tr>
+	<% @all_subscriptions.each do |s| %>
+	<tr>
+		<td><%= s.id %></td>
+		<td><%= s.email %></td>
+		<td><%= link_to 'Show', subscriptions_path %></td>
+		<td><%= link_to 'Destroy', subscriptions_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
 	</tr>
 	<% end %>
 </table>
@@ -40,29 +66,41 @@
 <div>No. of garments: <%= @number_of_garments %></div>
 <table border="1">
 	<tr>
-	<td>ID</td>
-	<td>Style</td>
-	<td>Genre</td>
-	<td>Period</td>
-	<td>Material</td>
-	<td>Available size</td>
-	<td>Quantity</td>
-	<td>Price</td>
-	<td>Description</td>
-	<td>Admin ID</td>
+	<th>ID</th>
+	<th>Style</th>
+	<th>Genre</th>
+	<th>Period</th>
+	<th>Material</th>
+	<th>Available size</th>
+	<th>Quantity</th>
+	<th>Price</th>
+	<th>Description</th>
+	<th>Admin ID</th>
+	<th> </th>
+	<th> </th>
+	<th> </th>
 	</tr>
-	<% Garment.each do %>
+	<% @all_garments.each do |garment| %>
 	<tr>
-	<td><%= Garment.id %></td>
-	<td><%= Garment.style %></td>
-	<td><%= Garment.genre %></td>
-	<td><%= Garment.period %></td>
-	<td><%= Garment.material %></td>
-	<td><%= Garment.available_size %></td>
-	<td><%= Garment.quantity %></td>
-	<td><%= Garment.price %></td>
-	<td><%= Garment.description %></td>
-	<td><%= Garment.admin_id %></td>
+	<td><%= garment.id %></td>
+	<td><%= garment.style %></td>
+	<td><%= garment.genre %></td>
+	<td><%= garment.period %></td>
+	<td><%= garment.material %></td>
+	<td><%= garment.available_size %></td>
+	<td><%= garment.quantity %></td>
+	<td><%= garment.price %></td>
+	<td><%= garment.description %></td>
+	<td><%= garment.admin_id %></td>
+	<td><%= link_to ' Show ', garment %></td>
+    <td><%= link_to ' Edit ', edit_garment_path(garment) %></td>
+    <td><%= link_to 'Destroy', garment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 	<% end %>
 </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

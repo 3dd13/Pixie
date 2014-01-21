@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  # before_action :set_subscription, only: [:create]
+  # before_action :set_subscription, only: [:create, :destroy]
   # GET /messages
   # GET /messages.json
   def index
@@ -20,8 +20,8 @@ class SubscriptionsController < ApplicationController
   def edit
   end
 
-  # POST /messages
-  # POST /messages.json
+  # POST /subscriptions
+  # POST /subscriptions.json
   def create
     @subscription = Subscription.new(subscription_params)
 
@@ -36,15 +36,18 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
+  # DELETE /subscriptions/1
+  # DELETE /subscriptions/1.json
+  #**********************************
   def destroy
+
     @subscription.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to admins_path }
+        format.json { head :no_content }
     end
   end
+  #*************************************
 
   private
     # Use callbacks to share common setup or constraints between actions.

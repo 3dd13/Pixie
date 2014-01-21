@@ -6,7 +6,7 @@
     body{
       text-align: center;
       background: url(http://farm4.staticflickr.com/3685/12027147646_58878026ac_o.jpg);
-      background-size: cover;
+      background-size: 120%;
       background-position: center;  
     }
     p {
@@ -20,33 +20,42 @@
       font-size: 18px;
       margin: auto;
       padding: 20px;
+      clear: both;
     }
-    .garment_photo {
-      position: relative;
+    #garment_photo {
+      /*position: absolute;*/
       padding: 0;
-      width:160px;
+      width:310px;
       display:block;
       border: 5px black solid;
       border-radius: 5px;
+      float: left;
+      clear: both;
     }
-    .garment_detail {
-      position: absolute;
+    /*#garment_details {
+      text-align: left;
+      position: relative;
       margin:auto;
       padding: 10;
       color:black;
       font-size:20px;
       font-family: helvetica;
       background-color:#ee5a8e;
-      width: 150px;
-      height: 150px;
+      width: 310px;
+      height: 310px;
       text-align: center;
-      opacity: 0;
-      -webkit-transition: all 0.1s ease;
+*//*
+      /*opacity: 0;*/
+      /*-webkit-transition: all 0.1s ease;
       -moz-transition: all 0.1s ease;
       -o-transition: all 0.1s ease;
       transition: all 0.1s ease;
+    }*/
+    .float_right {
+      float: right;
+      clear: both;
     }
-    .garment_detail:hover {
+    #garment_hover:hover {
     opacity:0.8;
     }
     #subscription_list {
@@ -54,6 +63,9 @@
       border-radius: 3px;
       padding: 8px;
       font-size: 16px;"
+    }
+    #cart {
+      font-size: 18px;
     }
     #subscription_button {
       border: 0;
@@ -113,7 +125,7 @@
                 <li><%= link_to I18n.t('helpers.navbar.collection'), collection_index_path %></li>
                 <li><%= link_to I18n.t('helpers.navbar.about_us'), about_path %></li>
                 <li><%= link_to I18n.t('helpers.navbar.contact'), contact_path %></li>
-                 <li class="dropdown">
+                <!--  <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Baby Boy</a></li>
@@ -122,10 +134,11 @@
                     <li><a href="#">Kiddie Boy</a></li>
                     <li><a href="#">Mini Girl</a></li>
                   </ul>
+                  <li> -->
                 <% if current_user %>
                 <li><%= link_to I18n.t('helpers.navbar.sign_out'), destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                <li><%= link_to I18n.t('helpers.navbar.sign_in'), new_user_session_path %>
+                <li><%= link_to I18n.t('helpers.navbar.sign_in'), new_user_session_path %></li>
                 <li><%= link_to I18n.t('helpers.navbar.sign_in_with'), user_omniauth_authorize_path(:facebook) %></li>
                 <% end %>
                 <li><ul class="nav navbar-nav pull-right">
@@ -133,7 +146,7 @@
                     <li><%= link_to "中文版", root_path(locale: "zh-CN") %></li>
                     </ul>
                 </li>
-                <li><a style="font-size: 18px;" href="/"><i class="fa fa-shopping-cart"></i></a></li>
+                <li id="cart"><%= link_to '<i class="fa fa-shopping-cart"></i>'.html_safe , shopping_cart_items_path %></li>
               </ul>
             </div>
   
@@ -171,9 +184,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../docs-assets/js/holder.js"></script>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="../../dist/js/bootstrap.min.js"></script>
+    // <script src="../../docs-assets/js/holder.js"></script>-->
 
   </body>
 </html>

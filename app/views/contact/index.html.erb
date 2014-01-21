@@ -19,7 +19,7 @@
   </div><br>
   <div class="field">
     <%= f.label :about %><br>
-    <%= f.text_field :topic, :style => "border-radius: 5px;" %>
+    <%= f.select :topic, [[I18n.t('helpers.label.message.product'), "Product"],[I18n.t('helpers.label.message.shipping'), "Shipping" ], [I18n.t('helpers.label.message.return'), "Return"], [I18n.t('helpers.label.message.others'), "Others"]], :style => "border-radius: 5px;" %>
   </div><br>
   <div class="field">
     <%= f.label :tell %><br>
